@@ -1,0 +1,96 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "networkName": {
+      "type": "string",
+      "defaultValue": "DefaultNetwork",
+      "metadata": { "description": "Virtual Network Name" }
+    }
+  },
+  "variables": {
+    "location": "[resourceGroup().location]",
+    "subnetName": "[concat(parameters('networkName'), '-subnet')]",
+    "nsgName": "[concat(parameters('networkName'), '-nsg')]",
+    "PortSsh": "22",
+    "PortRdp": "3389",
+    "PortNodered": "1880",
+    "PortOPCServer1": "54845",
+    "PortOPCServer2": "54855"
+    
+  },
+  "resources": [
+    {
+      "apiVersion": "2018-10-01",
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "[parameters('networkName')]",
+      "location": "[variables('location')]",
+      "dependsOn": [ "[variables('nsgName')]"],
+      "properties": {
+        "addressSpace": { "addressPrefixes": [ "10.2.0.0/16" ] },
+        "subnets": [
+          {
+            "name": "[variables('subnetName')]",
+            "properties": {
+              "addressPrefix": "10.2.0.0/16",
+              "networkSecurityGroup": { "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgName'))]" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "[variables('nsgName')]",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "apiVersion": "2018-08-01",
+      "location": "[variables('location')]",
+      "tags": {},
+      "properties": {
+        "securityRules": [
+          {
+            "name": "Allow_Inbound_SSH",
+            "properties": {
+              "description": "Allow Inbound SSH",
+              "protocol": "*",
+              "sourcePortRange": "*",
+              "destinationPortRanges": [ "[variables('PortSsh')]", "[variables('PortNodered')]" ],
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 200,
+              "direction": "Inbound"
+            }
+          },
+          {
+            "name": "Allow_OPC_From_Internal_Network",
+            "properties": {
+              "description": "Allow OPCUA connections from internal network",
+              "protocol": "TCP",
+              "sourcePortRange": "*",
+              "destinationPortRanges": [ "[variables('PortOPCServer1')]", "[variables('PortOPCServer2')]" ],
+              "sourceAddressPrefix": "10.2.0.0/24",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 210,
+              "direction": "Inbound"
+            }
+          },
+          {
+            "name": "Deny_All_Other_Inbound",
+            "properties": {
+              "description": "Deny All Other Inbound",
+              "protocol": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "*",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Deny",
+              "priority": 250,
+              "direction": "Inbound"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

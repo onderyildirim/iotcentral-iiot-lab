@@ -1,0 +1,38 @@
+[
+  {
+    "EndpointUrl": "opc.tcp://172.17.0.3:50000",
+    "UseSecurity": false,
+    "OpcNodes": [
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/Boiler;s=Boiler" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=StepUp" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=AlternatingBoolean" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=RandomSignedInt32" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=RandomUnsignedInt32" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=65e451f1-56f1-ce84-a44f-6addf176beaf" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=9513141f-c697-8a1f-a236-e14864e4bf7e" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=84ec863d-3659-aa9f-d68c-25ea83802bc9" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=b251c5e1-6fe2-46cd-5931-4e1f108520bf" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=8eea5905-ee80-793b-6774-483a719f9b22" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=DipData" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt2" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt3" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt4" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt5" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=BadFastUInt1" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=LongString10kB" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=LongString50kB" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=LongString100kB" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=LongString200kB" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=NegativeTrendData" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=PositiveTrendData" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=SlowUInt1", "OpcPublishingInterval": 10000 },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=SlowUInt2", "OpcPublishingInterval": 10000 },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=SlowUInt3", "OpcPublishingInterval": 10000 },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=SlowUInt4", "OpcPublishingInterval": 10000 },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=SlowUInt5", "OpcPublishingInterval": 10000 },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=BadSlowUInt1", "OpcPublishingInterval": 10000 },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=SpikeData" }
+    ]
+  }
+]
