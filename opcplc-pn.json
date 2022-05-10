@@ -1,6 +1,6 @@
 [
   {
-    "EndpointUrl": "opc.tcp://172.17.0.3:50000",
+    "EndpointUrl": "opc.tcp://opcplc:50000",
     "UseSecurity": false,
     "OpcNodes": [
       { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/Boiler;s=Boiler" },
