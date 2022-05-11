@@ -30,20 +30,30 @@
                     }
             },
                 "modules": {
-                    "opcplc": {
+                    "opcplcsim": {
                         "settings": {
                             "image": "mcr.microsoft.com/iotedge/opc-plc:latest",
-                            "createOptions": "{\"Hostname\":\"opcplc\",\"Cmd\":[\"--pn=50000\",\"--autoaccept\",\"--sph\",\"--sn=5\",\"--sr=10\",\"--st=uint\",\"--fn=5\",\"--fr=1\",\"--ft=uint\",\"--ctb\",\"--scn\",\"--lid\",\"--lsn\",\"--ref\",\"--gn=5\"],\"HostConfig\":{\"PortBindings\":{\"50000/tcp\":[{\"HostPort\":\"50000\"}],\"8080/tcp\":[{\"HostPort\":\"8080\"}]}}}"
+                            "createOptions": "{\"Hostname\":\"opcplcsim\",\"Cmd\":[\"--pn=50000\",\"--autoaccept\",\"--sph\",\"--sn=5\",\"--sr=10\",\"--st=uint\",\"--fn=5\",\"--fr=1\",\"--ft=uint\",\"--ctb\",\"--scn\",\"--lid\",\"--lsn\",\"--ref\",\"--gn=5\"],\"HostConfig\":{\"PortBindings\":{\"50000/tcp\":[{\"HostPort\":\"50000\"}],\"8080/tcp\":[{\"HostPort\":\"8080\"}]}}}"
                         },
                         "type": "docker",
                         "status": "running",
                         "restartPolicy": "always",
                         "version": "1.0"
                     },
-                    "publisher": {
+                    "opcplc": {
                         "settings": {
-                            "image": "mcr.microsoft.com/iotedge/opc-publisher:2.8.3",
-                            "createOptions": "{\"Hostname\":\"publisher\",\"Cmd\":[\"publisher\",\"--pf=/appdata/publishednodes.json\",\"--aa\"],\"HostConfig\":{\"Binds\":[\"/iiotedge:/appdata\"],\"PortBindings\":{\"62222/tcp\":[{\"HostPort\":\"62222\"}]}}}"
+                            "image": "mcr.microsoft.com/iotedge/opc-publisher:2.8",
+                            "createOptions": "{\"Hostname\":\"opcplcpublisher\",\"Cmd\":[\"publisher\",\"--pf=/appdata/opcplcpublishednodes.json\",\"--aa\",\"--mm=PubSub\"],\"HostConfig\":{\"Binds\":[\"/iiotedge:/appdata\"],\"PortBindings\":{\"62222/tcp\":[{\"HostPort\":\"62223\"}]}}}"
+                        },
+                        "type": "docker",
+                        "version": "1.0",
+                        "status": "running",
+                        "restartPolicy": "always"
+                    },
+                    "opcua": {
+                        "settings": {
+                            "image": "mcr.microsoft.com/iotedge/opc-publisher:2.8",
+                            "createOptions": "{\"Hostname\":\"publisher\",\"Cmd\":[\"publisher\",\"--pf=/appdata/publishednodes.json\",\"--aa\",\"--mm=PubSub\"],\"HostConfig\":{\"Binds\":[\"/iiotedge:/appdata\"],\"PortBindings\":{\"62222/tcp\":[{\"HostPort\":\"62222\"}]}}}"
                         },
                         "type": "docker",
                         "version": "1.0",
@@ -64,7 +74,7 @@
                 }
             }
         },
-        "publisher": {
+        "opcua": {
             "properties.desired": {}
         }
     }
