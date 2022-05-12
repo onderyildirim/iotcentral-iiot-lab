@@ -1,6 +1,6 @@
     [
         {
-            "EndpointUrl": "opc.tcp://10.2.0.4:54845/OPCUA/Site1",
+            "EndpointUrl": "opc.tcp://opcuasim:54845/OPCUA/Site1",
             "OpcAuthenticationMode": "Anonymous",
             "OpcNodes": [
                 {
@@ -24,7 +24,7 @@
             ]
         },
         {
-            "EndpointUrl": "opc.tcp://10.2.0.4:54855/OPCUA/Site2",
+            "EndpointUrl": "opc.tcp://opcuasim:54855/OPCUA/Site2",
             "OpcAuthenticationMode": "Anonymous",
             "OpcNodes": [
                 {

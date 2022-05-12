@@ -50,6 +50,16 @@
                         "status": "running",
                         "restartPolicy": "always"
                     },
+                    "opcuasim": {
+                        "settings": {
+                            "image": "onderyildirim/opcsimulator:0.1.50.0-amd64",
+                            "createOptions": "{\"Hostname\":\"opcuasim\",\"HostConfig\":{\"PortBindings\":{\"1880/tcp\":[{\"HostPort\":\"1880\"}],\"54845/tcp\":[{\"HostPort\":\"54845\"}],\"54855/tcp\":[{\"HostPort\":\"54855\"}]}}}"
+                        },
+                        "type": "docker",
+                        "status": "running",
+                        "restartPolicy": "always",
+                        "version": "1.0"
+                    },
                     "opcua": {
                         "settings": {
                             "image": "mcr.microsoft.com/iotedge/opc-publisher:2.8",
