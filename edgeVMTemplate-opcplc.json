@@ -142,6 +142,10 @@
       "type": "string",
       "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('pipName'))).dnsSettings.fqdn]"
     },
+    "vmMachinePublicIp": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('pipName'))).ipAddress]"
+    },
     "vmAdminUserName": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.Compute/virtualMachines', parameters('vmMachineName'))).osProfile.adminUsername]"

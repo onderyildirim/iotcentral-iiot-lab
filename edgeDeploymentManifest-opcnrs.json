@@ -43,7 +43,7 @@
                     "opcua": {
                         "settings": {
                             "image": "mcr.microsoft.com/iotedge/opc-publisher:2.8",
-                            "createOptions": "{\"Hostname\":\"publisher\",\"Cmd\":[\"publisher\",\"--pf=/appdata/publishednodes.json\",\"--aa\",\"--mm=PubSub\"],\"HostConfig\":{\"Binds\":[\"/iiotedge:/appdata\"],\"PortBindings\":{\"62222/tcp\":[{\"HostPort\":\"62222\"}]}}}"
+                            "createOptions": "{\"Hostname\":\"publisher\",\"Cmd\":[\"publisher\",\"--pf=/appdata/opcuapublishednodes.json\",\"--aa\",\"--mm=PubSub\"],\"HostConfig\":{\"Binds\":[\"/iiotedge:/appdata\"],\"PortBindings\":{\"62222/tcp\":[{\"HostPort\":\"62222\"}]}}}"
                         },
                         "type": "docker",
                         "version": "1.0",
