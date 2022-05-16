@@ -1,0 +1,229 @@
+{
+    "@id": "dtmi:sdaqpu9hj:opcplc;1",
+    "@type": "Interface",
+    "contents": [
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:Boiler;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "Boiler"
+            },
+            "name": "Boiler",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:StepUp;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "StepUp"
+            },
+            "name": "StepUp",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:AlternatingBoolean;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "AlternatingBoolean"
+            },
+            "name": "AlternatingBoolean",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:RandomSignedInt32;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "RandomSignedInt32"
+            },
+            "name": "RandomSignedInt32",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:DipData;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "DipData"
+            },
+            "name": "DipData",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:FastUInt1;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "FastUInt1"
+            },
+            "name": "FastUInt1",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:FastUInt2;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "FastUInt2"
+            },
+            "name": "FastUInt2",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:FastUInt3;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "FastUInt3"
+            },
+            "name": "FastUInt3",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:FastUInt4;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "FastUInt4"
+            },
+            "name": "FastUInt4",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:FastUInt5;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "FastUInt5"
+            },
+            "name": "FastUInt5",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:BadFastUInt1;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "BadFastUInt1"
+            },
+            "name": "BadFastUInt1",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:LongString10kB;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "LongString10kB"
+            },
+            "name": "LongString10kB",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:LongString50kB;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "LongString50kB"
+            },
+            "name": "LongString50kB",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:LongString100kB;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "LongString100kB"
+            },
+            "name": "LongString100kB",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:LongString200kB;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "LongString200kB"
+            },
+            "name": "LongString200kB",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:NegativeTrendData;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "NegativeTrendData"
+            },
+            "name": "NegativeTrendData",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:PositiveTrendData;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "PositiveTrendData"
+            },
+            "name": "PositiveTrendData",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:SlowUInt1;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "SlowUInt1"
+            },
+            "name": "SlowUInt1",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:SlowUInt2;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "SlowUInt2"
+            },
+            "name": "SlowUInt2",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:SlowUInt3;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "SlowUInt3"
+            },
+            "name": "SlowUInt3",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:SlowUInt4;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "SlowUInt4"
+            },
+            "name": "SlowUInt4",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:SlowUInt5;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "SlowUInt5"
+            },
+            "name": "SlowUInt5",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:BadSlowUInt1;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "BadSlowUInt1"
+            },
+            "name": "BadSlowUInt1",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:sdaqpu9hj:opcplc:SpikeData;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "SpikeData"
+            },
+            "name": "SpikeData",
+            "schema": "double"
+        }
+    ],
+    "displayName": {
+        "en": "Module opcplc"
+    },
+    "@context": [
+        "dtmi:iotcentral:context;2",
+        "dtmi:dtdl:context;2"
+    ]
+}
