@@ -30,20 +30,20 @@
                     }
             },
                 "modules": {
-                    "opcuasim": {
+                    "opcplcsim": {
                         "settings": {
-                            "image": "onderyildirim/opcsimulator:0.1.50.0-amd64",
-                            "createOptions": "{\"Hostname\":\"opcuasim\",\"HostConfig\":{\"PortBindings\":{\"1880/tcp\":[{\"HostPort\":\"1880\"}],\"54845/tcp\":[{\"HostPort\":\"54845\"}],\"54855/tcp\":[{\"HostPort\":\"54855\"}]}}}"
+                            "image": "mcr.microsoft.com/iotedge/opc-plc:latest",
+                            "createOptions": "{\"Hostname\":\"opcplcsim\",\"Cmd\":[\"--pn=50000\",\"--autoaccept\",\"--sph\",\"--sn=5\",\"--sr=10\",\"--st=uint\",\"--fn=5\",\"--fr=1\",\"--ft=uint\",\"--ctb\",\"--scn\",\"--lid\",\"--lsn\",\"--ref\",\"--gn=5\"],\"HostConfig\":{\"PortBindings\":{\"50000/tcp\":[{\"HostPort\":\"50000\"}],\"8080/tcp\":[{\"HostPort\":\"8080\"}]}}}"
                         },
                         "type": "docker",
                         "status": "running",
                         "restartPolicy": "always",
                         "version": "1.0"
                     },
-                    "opcua": {
+                    "asset3": {
                         "settings": {
                             "image": "mcr.microsoft.com/iotedge/opc-publisher:2.8",
-                            "createOptions": "{\"Hostname\":\"publisher\",\"Cmd\":[\"publisher\",\"--pf=/appdata/opcuapublishednodes.json\",\"--aa\",\"--mm=PubSub\"],\"HostConfig\":{\"Binds\":[\"/iiotedge:/appdata\"],\"PortBindings\":{\"62222/tcp\":[{\"HostPort\":\"62222\"}]}}}"
+                            "createOptions": "{\"Hostname\":\"asset3\",\"Cmd\":[\"publisher\",\"--pf=/appdata/opcplc-pn.json\",\"--aa\",\"--mm=PubSub\"],\"HostConfig\":{\"Binds\":[\"/iiotedge:/appdata\"],\"PortBindings\":{\"62222/tcp\":[{\"HostPort\":\"62223\"}]}}}"
                         },
                         "type": "docker",
                         "version": "1.0",

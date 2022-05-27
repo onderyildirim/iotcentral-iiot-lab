@@ -1,0 +1,33 @@
+.drop table iiotdataplc
+
+.clear table iiotdataplc data 
+
+
+.create table iiotdataplc (
+    EnqueuedTime: datetime,
+    GatewayId: string,
+    Asset: string,
+    Status: boolean,
+    AlternatingBoolean: boolean,
+    RandomSignedInt32: int,
+    FastUInt1: double,
+    NegativeTrendData: double,
+    PositiveTrendData: double,
+    SlowUInt1: int,
+    SpikeData: double,
+    applicationId: string,
+    component: string,
+    enrichments: string,
+    messageProperties: string,
+    messageSource: string,
+    module: string,
+    schema: string,
+    telemetry: dynamic,
+    templateId: string
+)
+
+
+
+.alter database iotcholdb policy streamingingestion enable
+
+.alter table iiotdataplc policy streamingingestion enable

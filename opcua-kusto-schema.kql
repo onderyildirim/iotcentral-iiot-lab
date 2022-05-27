@@ -1,0 +1,59 @@
+
+.drop table iiotdata
+
+.clear table iiotdata data 
+
+
+.create table iiotdata (
+    EnqueuedTime: datetime,
+    GatewayId: string,
+    Asset: string,
+    Status: int,
+    ItemCountGood: int,
+    ItemCountBad: int,
+    applicationId: string,
+    component: string,
+    enrichments: string,
+    messageProperties: string,
+    messageSource: string,
+    module: string,
+    schema: string,
+    telemetry: dynamic,
+    templateId: string
+)
+
+
+
+.alter database iotcholdb policy streamingingestion enable
+
+.alter table iiotdata policy streamingingestion enable
+
+
+
+
+
+.create table AssetInventory (
+    Asset: string,
+    Capacity: double
+)
+
+.set-or-replace AssetInventory <|
+datatable(Asset:string, Capacity:double) [
+    "opc.tcp://opcuasim:54845/OPCUA/Site1_EBE255AC", 1200,
+    "opc.tcp://opcuasim:54855/OPCUA/Site2_87402E1E", 1400
+]
+
+
+.create table ShiftSchedule (
+    Asset: string,
+    ShiftStart: datetime,
+    ShiftEnd: datetime
+)
+
+
+.set-or-replace ShiftSchedule <|
+range times from datetime(2022-05-01) to datetime(2023-05-01) step 8h
+| serialize start=times, end=next(times)
+| extend dummy=1
+| join kind=inner (AssetInventory | extend dummy=1) on dummy
+| project Asset,ShiftStart=start,ShiftEnd=end

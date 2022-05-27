@@ -1,0 +1,25 @@
+# The transformation query specified here will be used to change each exported 
+# message into a different format. You can get started using the example below,
+# and learn more about the language in documentation:
+# https://aka.ms/dataexporttransformation
+# Here is a sample query to find and assign the value for capability named 'RangeOfMotion'
+# import 'iotc' as iotc;
+# { RangeOfMotion: .telemetry | iotc::find(.name == 'RangeOfMotion').value }
+import "iotc" as iotc;
+{
+    schema: "default@v1",
+    EnqueuedTime: .enqueuedTime,
+    GatewayId: .device.id,
+    Asset: (.telemetry | iotc::find(.name == "Asset").value),
+    Status: (.telemetry | iotc::find(.name == "Status").value),
+    ItemCountGood: (.telemetry | iotc::find(.name == "ItemCountGood").value),
+    ItemCountBad: (.telemetry | iotc::find(.name == "ItemCountBad").value),
+    applicationId: .applicationId,
+    templateId: .device.templateId,
+    messageSource: .messageSource,
+    telemetry: .telemetry | map({ key: .name, value: .value }) | from_entries,
+    messageProperties: .messageProperties,
+    enrichments: .enrichments,
+    component: .component,
+    module: .module
+}

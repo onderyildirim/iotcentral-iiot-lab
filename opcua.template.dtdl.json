@@ -3,15 +3,6 @@
     "@type": "Interface",
     "contents": [
         {
-            "@id": "dtmi:z45mwmltu:opcua:Asset;1",
-            "@type": "Telemetry",
-            "displayName": {
-                "en": "Asset"
-            },
-            "name": "Asset",
-            "schema": "double"
-        },
-        {
             "@id": "dtmi:z45mwmltu:opcua:Status;1",
             "@type": [
                 "Telemetry",

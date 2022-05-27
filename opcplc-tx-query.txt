@@ -1,0 +1,32 @@
+# The transformation query specified here will be used to change each exported 
+# message into a different format. You can get started using the example below,
+# and learn more about the language in documentation:
+# https://aka.ms/dataexporttransformation
+# Here is a sample query to find and assign the value for capability named 'RangeOfMotion'
+# import 'iotc' as iotc;
+# { RangeOfMotion: .telemetry | iotc::find(.name == 'RangeOfMotion').value }
+import "iotc" as iotc;
+{
+    schema: "default@v1",
+    EnqueuedTime: .enqueuedTime,
+    GatewayId: .device.id,
+    Asset: (.telemetry | iotc::find(.name == "Asset").value),
+    Status: (.telemetry | iotc::find(.name == "Status").value),
+    AlternatingBoolean:  (.telemetry | iotc::find(.name == "AlternatingBoolean").value),
+    RandomSignedInt32:  (.telemetry | iotc::find(.name == "RandomSignedInt32").value),
+    FastUInt1:  (.telemetry | iotc::find(.name == "FastUInt1").value),
+    NegativeTrendData:  (.telemetry | iotc::find(.name == "NegativeTrendData").value),
+    PositiveTrendData:  (.telemetry | iotc::find(.name == "PositiveTrendData").value),
+    SlowUInt1:  (.telemetry | iotc::find(.name == "SlowUInt1").value),
+    SpikeData:  (.telemetry | iotc::find(.name == "SpikeData").value),
+    applicationId: .applicationId,
+    templateId: .device.templateId,
+    messageSource: .messageSource,
+    telemetry: .telemetry | map({ key: .name, value: .value }) | from_entries,
+    messageProperties: .messageProperties,
+    enrichments: .enrichments,
+    component: .component,
+    module: .module
+}
+
+

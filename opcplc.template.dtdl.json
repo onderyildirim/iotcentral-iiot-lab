@@ -9,7 +9,7 @@
                 "en": "AlternatingBoolean"
             },
             "name": "AlternatingBoolean",
-            "schema": "double"
+            "schema": "boolean"
         },
         {
             "@id": "dtmi:sdaqpu9hj:opcplc:RandomSignedInt32;1",
