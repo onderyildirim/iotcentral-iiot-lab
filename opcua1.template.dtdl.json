@@ -1,0 +1,113 @@
+{
+    "@id": "dtmi:z45mwmltu:opcua;1",
+    "@type": "Interface",
+    "contents": [
+        {
+            "@id": "dtmi:z45mwmltu:opcua:Status;1",
+            "@type": [
+                "Telemetry",
+                "State"
+            ],
+            "displayName": {
+                "en": "Status"
+            },
+            "name": "Status",
+            "schema": {
+                "@id": "dtmi:z45mwmltu:opcua:Status:schema;1",
+                "@type": "Enum",
+                "enumValues": [
+                    {
+                        "@id": "dtmi:z45mwmltu:opcua:Status:schema:RunningSlow;1",
+                        "displayName": {
+                            "en": "RunningSlow"
+                        },
+                        "enumValue": 101,
+                        "name": "RunningSlow"
+                    },
+                    {
+                        "@id": "dtmi:z45mwmltu:opcua:Status:schema:RunningModerate;1",
+                        "displayName": {
+                            "en": "RunningModerate"
+                        },
+                        "enumValue": 105,
+                        "name": "RunningModerate"
+                    },
+                    {
+                        "@id": "dtmi:z45mwmltu:opcua:Status:schema:RunningFast;1",
+                        "displayName": {
+                            "en": "RunningFast"
+                        },
+                        "enumValue": 108,
+                        "name": "RunningFast"
+                    },
+                    {
+                        "@id": "dtmi:z45mwmltu:opcua:Status:schema:StoppedFanError;1",
+                        "displayName": {
+                            "en": "StoppedFanError"
+                        },
+                        "enumValue": 102,
+                        "name": "StoppedFanError"
+                    },
+                    {
+                        "@id": "dtmi:z45mwmltu:opcua:Status:schema:StoppedLValveError;1",
+                        "displayName": {
+                            "en": "StoppedLValveError"
+                        },
+                        "enumValue": 104,
+                        "name": "StoppedLValveError"
+                    },
+                    {
+                        "@id": "dtmi:z45mwmltu:opcua:Status:schema:StoppedUValveError;1",
+                        "displayName": {
+                            "en": "StoppedUValveError"
+                        },
+                        "enumValue": 106,
+                        "name": "StoppedUValveError"
+                    },
+                    {
+                        "@id": "dtmi:z45mwmltu:opcua:Status:schema:StoppedMValveError;1",
+                        "displayName": {
+                            "en": "StoppedMValveError"
+                        },
+                        "enumValue": 107,
+                        "name": "StoppedMValveError"
+                    },
+                    {
+                        "@id": "dtmi:z45mwmltu:opcua:Status:schema:StoppedVoltageError;1",
+                        "displayName": {
+                            "en": "StoppedVoltageError"
+                        },
+                        "enumValue": 109,
+                        "name": "StoppedVoltageError"
+                    }
+                ],
+                "valueSchema": "integer"
+            }
+        },
+        {
+            "@id": "dtmi:z45mwmltu:opcua:ItemCountGood;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "ItemCountGood"
+            },
+            "name": "ItemCountGood",
+            "schema": "double"
+        },
+        {
+            "@id": "dtmi:z45mwmltu:opcua:ItemCountBad;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "ItemCountBad"
+            },
+            "name": "ItemCountBad",
+            "schema": "double"
+        }
+    ],
+    "displayName": {
+        "en": "Module Asset1"
+    },
+    "@context": [
+        "dtmi:iotcentral:context;2",
+        "dtmi:dtdl:context;2"
+    ]
+}
