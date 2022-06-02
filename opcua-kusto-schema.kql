@@ -1,7 +1,7 @@
 
-.drop table iiotdata
+//.drop table iiotdata
 
-.clear table iiotdata data 
+//.clear table iiotdata data 
 
 
 .create table iiotdata (

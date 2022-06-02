@@ -101,10 +101,19 @@
             },
             "name": "ItemCountBad",
             "schema": "double"
+        },
+        {
+            "@id": "dtmi:y45mwmltu:opcua:Asset;1",
+            "@type": "Telemetry",
+            "displayName": {
+                "en": "Asset"
+            },
+            "name": "Asset",
+            "schema": "string"
         }
     ],
     "displayName": {
-        "en": "Module Asset2"
+        "en": "Module Asset3"
     },
     "@context": [
         "dtmi:iotcentral:context;2",

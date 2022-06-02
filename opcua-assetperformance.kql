@@ -1,0 +1,33 @@
+.create-or-alter function  AssetPerformance(assetId:string,min_t:datetime,max_t:datetime) {
+let StatusValuesForOn = dynamic([101,105,108]);
+let last_state = iiotdata | where EnqueuedTime <min_t and isnotnull(Status) | where isempty(assetId) or assetId==Asset | summarize arg_max(EnqueuedTime,Status) by Asset | project Asset, LastStatus=Status;
+iiotdata
+| where isempty(assetId) or assetId==Asset
+| make-series 
+    Status=toint(arg_max(Status,EnqueuedTime)[0])  default=int(null),
+    ItemCountGood=sum(ItemCountGood) default=long(0), 
+    ItemCountBad=sum(ItemCountBad) default=long(0) 
+    on EnqueuedTime from min_t to max_t step 1m 
+    by Asset
+| join kind=leftouter last_state on Asset
+| project-away Asset1
+| extend Status=series_fill_forward(Status)
+| extend Status=series_fill_const(Status,LastStatus)
+| mv-expand EnqueuedTime, Status, ItemCountGood, ItemCountBad
+| extend EnqueuedTime=todatetime(EnqueuedTime), ItemCountGood=todouble(ItemCountGood), ItemCountBad=todouble(ItemCountBad)
+| join kind=leftouter  (ShiftSchedule | where ShiftStart  between (min_t .. max_t)) on ($left.EnqueuedTime==$right.ShiftStart and $left.Asset==$right.Asset)
+| extend ShiftStartMarker=iff(isnull(ShiftStart),int(null),int(1))
+| project-away Asset1,ShiftEnd
+| extend Status=toint(set_has_element(StatusValuesForOn, toint(Status)))
+| order by Asset, EnqueuedTime
+| serialize  PrevStatus=iff(Asset==prev(Asset),prev(Status),int(null))
+| extend Status=iff(Status==0 and PrevStatus==1,int(1),Status)
+| join kind=leftouter AssetInventory on Asset
+| project-away Asset1
+| serialize 
+    Availability=todouble(row_cumsum(Status, Asset != prev(Asset) or ShiftStart!= prev(ShiftStart)))/todouble(row_cumsum(int(1), Asset != prev(Asset) or ShiftStart!= prev(ShiftStart))),
+    Quality=todouble(row_cumsum(ItemCountGood, Asset != prev(Asset) or ShiftStart!= prev(ShiftStart)))/todouble(row_cumsum(ItemCountGood+ItemCountBad, Asset != prev(Asset) or ShiftStart!= prev(ShiftStart))),
+    Performance=ItemCountGood/Capacity
+| extend Availability=iff(isnan(Availability), double(null), Availability) , Quality=iff(isnan(Quality), double(null), Quality), Performance=iff(isnan(Performance), double(null), Performance)
+| project Asset, EnqueuedTime, Status, ItemCountGood, ItemCountBad, OEE=Availability*Quality*Performance, Availability, Quality, Performance,ShiftStartMarker
+}
