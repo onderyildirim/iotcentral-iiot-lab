@@ -23,6 +23,7 @@ iiotdata
 | serialize  PrevStatus=iff(Asset==prev(Asset),prev(Status),int(null))
 | extend Status=iff(Status==0 and PrevStatus==1,int(1),Status)
 | join kind=leftouter AssetInventory on Asset
+| where EnqueuedTime <= now()
 | project-away Asset1
 | serialize 
     Availability=todouble(row_cumsum(Status, Asset != prev(Asset) or ShiftStart!= prev(ShiftStart)))/todouble(row_cumsum(int(1), Asset != prev(Asset) or ShiftStart!= prev(ShiftStart))),

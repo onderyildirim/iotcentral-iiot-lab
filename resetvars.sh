@@ -2,6 +2,7 @@ cd ~/iotcentral-iiot-lab
 rgname="iotcoeehol"
 regionname="eastus2"
 instanceid="$RANDOM"
+adxname="{youradx}"
 appname="iotcoeehol-$instanceid"
 appid=$(az iot central app show -n $appname  --query applicationId --output tsv)
 networkName="iiothol-network-$instanceid"
