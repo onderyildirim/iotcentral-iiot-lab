@@ -5,7 +5,7 @@
     "networkName": {
       "type": "string",
       "defaultValue": "DefaultNetwork",
-      "metadata": { "description": "Virtual Network Name" }
+      "metadata": { "description": "Virtual network name" }
     }
   },
   "variables": {

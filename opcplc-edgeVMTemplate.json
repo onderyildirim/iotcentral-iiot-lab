@@ -17,7 +17,7 @@
     },
     "adminUserSshPublicKey": {
       "type": "string",
-      "metadata": { "description": "SSH public key provided as a string to connect to the IoT Edge VM." }
+      "metadata": { "description": "SSH public key provided as a string to connect to the IoT Edge VM" }
     },
     "vmSize": {
       "type": "string",

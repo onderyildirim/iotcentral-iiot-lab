@@ -31,7 +31,7 @@
       { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=SlowUInt3", "DisplayName": "SlowUInt3", "OpcPublishingInterval": 10000 },
       { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=SlowUInt4", "DisplayName": "SlowUInt4", "OpcPublishingInterval": 10000 },
       { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=SlowUInt5", "DisplayName": "SlowUInt5", "OpcPublishingInterval": 10000 },
-      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=BadSlowUInt1", "DisplayName": "BadSlowUInt1", "OpcPublishingInterval": 10000 },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=BadSlowUInt1", "DisplayName": "BadSlowUInt1",  "OpcPublishingInterval": 10000 },
       { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=SpikeData", "DisplayName": "SpikeData" }
     ]
   }
