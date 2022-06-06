@@ -40,10 +40,10 @@
                         "restartPolicy": "always",
                         "version": "1.0"
                     },
-                    "asset3": {
+                    "opcplc": {
                         "settings": {
                             "image": "mcr.microsoft.com/iotedge/opc-publisher:2.8",
-                            "createOptions": "{\"Hostname\":\"asset3\",\"Cmd\":[\"publisher\",\"--pf=/appdata/opcplc-pn.json\",\"--aa\",\"--mm=PubSub\"],\"HostConfig\":{\"Binds\":[\"/iiotedge:/appdata\"],\"PortBindings\":{\"62222/tcp\":[{\"HostPort\":\"62223\"}]}}}"
+                            "createOptions": "{\"Hostname\":\"opcplc\",\"Cmd\":[\"publisher\",\"--pf=/appdata/opcplc-pn.json\",\"--aa\",\"--mm=PubSub\"],\"HostConfig\":{\"Binds\":[\"/iiotedge:/appdata\"],\"PortBindings\":{\"62222/tcp\":[{\"HostPort\":\"62223\"}]}}}"
                         },
                         "type": "docker",
                         "version": "1.0",
