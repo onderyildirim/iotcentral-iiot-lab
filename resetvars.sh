@@ -1,11 +1,12 @@
 cd ~/iotcentral-iiot-lab 
-rgname="iotcoeehol"
+rgname="iotchol"
 regionname="eastus2"
 instanceid="$RANDOM"
 adxname="{youradx}"
-appname="iotcoeehol-$instanceid"
+adxrgname="{youradx resource group}"
+appname="iotchol-$instanceid"
 appid=$(az iot central app show -n $appname  --query applicationId --output tsv)
-networkName="iiothol-network-$instanceid"
+networkName="iotchol-network-$instanceid"
 opcVM="opcdevicevm-$instanceid"
 plcVM="plcdevicevm-$instanceid"
 adminUserSshPublicKey=$(cat $(readlink -f ~/.ssh/id_rsa.pub))
@@ -19,6 +20,8 @@ echo "   networkName=$networkName"
 echo "   opcVM=$opcVM"
 echo "   plcVM=$plcVM"
 echo "   adminUserSshPublicKey=$adminUserSshPublicKey"
+echo "   adxname=$adxname"
+echo "   adxrgname=$adxrgname"
 echo "=============================================="
 
 
